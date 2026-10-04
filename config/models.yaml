@@ -1,0 +1,60 @@
+# Every model the app can use. A model is skipped when its "model" id is empty, when "enabled: false",
+# or when a hosted provider's API key (api_key_env) isn't set in .env.
+# Put the exact model id from each provider's docs; ids change with new releases.
+models:
+  - name: claude-opus
+    provider: anthropic
+    model: claude-opus-5-5
+    api_key_env: ANTHROPIC_API_KEY
+  - name: claude-sonnet
+    provider: anthropic
+    model: claude-sonnet-5-5
+    api_key_env: ANTHROPIC_API_KEY
+  - name: claude-haiku
+    provider: anthropic
+    model: claude-haiku-4-5-20251001
+    api_key_env: ANTHROPIC_API_KEY
+  - name: gpt
+    provider: openai
+    model: ""            # current GPT model id from platform.openai.com/docs/models
+    api_key_env: OPENAI_API_KEY
+  - name: gemini
+    provider: google
+    model: ""            # current Gemini model id from ai.google.dev/gemini-api/docs/models
+    api_key_env: GOOGLE_API_KEY
+
+  # Open models on your own GPU (vLLM, SGLang) or laptop (Ollama). Turn on with enabled: true.
+  - name: qwen
+    provider: openai_compatible
+    base_url: http://localhost:8000/v1      # vllm serve Qwen/Qwen3.8-27B --port 8000
+    model: Qwen/Qwen3.8-27B
+    enabled: false
+  - name: sarvam
+    provider: openai_compatible
+    base_url: http://localhost:8001/v1      # vllm serve sarvamai/sarvam-30b --port 8001  (strong Hinglish)
+    model: sarvamai/sarvam-30b
+    enabled: false
+  - name: gemma-ollama
+    provider: openai_compatible
+    base_url: http://localhost:11434/v1     # ollama pull a Gemma 4 build, then put its tag below
+    model: ""
+    enabled: false
+  - name: vsp-tuned
+    provider: openai_compatible
+    base_url: http://localhost:8000/v1      # your LoRA, served with --enable-lora --lora-modules vsp=...
+    model: vsp
+    enabled: false
+  - name: openrouter
+    provider: openai_compatible
+    base_url: https://openrouter.ai/api/v1  # hosted open models (DeepSeek, Kimi, GLM, Qwen) by id
+    model: ""
+    api_key_env: OPENROUTER_API_KEY
+    enabled: false
+
+# Which model does which job. If a role's model isn't ready, "default" is used.
+roles:
+  quick: claude-haiku
+  default: claude-sonnet
+  complex: claude-opus
+  writer: claude-sonnet
+  second_opinion: gpt        # a different model family makes a real second opinion

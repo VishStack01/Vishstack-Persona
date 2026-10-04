@@ -1,0 +1,12 @@
+{"facts": ["Our app had 12,400 downloads on the Google Play Store as of 1 October 2026."], "claim": "The app has 12,400 Play Store downloads.", "expected": "supported"}
+{"facts": ["Our app had 12,400 downloads on the Google Play Store as of 1 October 2026."], "claim": "The app has over 50,000 downloads.", "expected": "contradicted"}
+{"facts": ["Our app had 12,400 downloads on the Google Play Store as of 1 October 2026."], "claim": "The app is rated 4.8 stars.", "expected": "unverifiable"}
+{"facts": ["The premium plan costs Rs 199 per month.", "There is a 7-day free trial on the premium plan."], "claim": "You can try premium free for 7 days.", "expected": "supported"}
+{"facts": ["The premium plan costs Rs 199 per month.", "There is a 7-day free trial on the premium plan."], "claim": "Premium is free forever.", "expected": "contradicted"}
+{"facts": ["The premium plan costs Rs 199 per month."], "claim": "Premium costs less than any competitor.", "expected": "unverifiable"}
+{"facts": ["In our March 2026 user survey, 312 of 540 respondents said they check their credit score at least once a month."], "claim": "Most surveyed users check their credit score monthly or more.", "expected": "supported"}
+{"facts": ["In our March 2026 user survey, 312 of 540 respondents said they check their credit score at least once a month."], "claim": "90% of users check their credit score every month.", "expected": "contradicted"}
+{"facts": ["The app does not lend money and does not offer loans."], "claim": "Get an instant loan through the app.", "expected": "contradicted"}
+{"facts": ["The app does not lend money and does not offer loans."], "claim": "The app guarantees your credit score will rise.", "expected": "unverifiable"}
+{"facts": [], "claim": "Thousands of users have already doubled their savings with this app.", "expected": "unverifiable"}
+{"facts": ["Support replies within 24 hours on working days."], "claim": "Support replies within a day on working days.", "expected": "supported"}

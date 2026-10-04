@@ -1,0 +1,5 @@
+# GPU machine only (training). See training/README.md
+unsloth
+trl
+datasets
+dspy>=3.0

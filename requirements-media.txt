@@ -1,0 +1,3 @@
+# Local, open-source media analysis (runs on CPU; a GPU makes it faster)
+faster-whisper>=1.0
+scenedetect[opencv]>=0.6

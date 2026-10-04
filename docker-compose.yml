@@ -1,0 +1,21 @@
+services:
+  app:
+    build: .
+    ports: ["127.0.0.1:8080:8080"]
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+    extra_hosts: ["host.docker.internal:host-gateway"]
+    # inside Docker, point open models at http://vllm:8000/v1 or http://host.docker.internal:11434/v1 in config/models.yaml
+
+  vllm:
+    profiles: ["gpu"]
+    image: vllm/vllm-openai:latest
+    command: ["--model", "Qwen/Qwen3.8-27B", "--max-model-len", "32768", "--port", "8000"]
+    ports: ["127.0.0.1:8000:8000"]
+    volumes: ["~/.cache/huggingface:/root/.cache/huggingface"]
+    deploy:
+      resources:
+        reservations:
+          devices: [{driver: nvidia, count: all, capabilities: [gpu]}]
